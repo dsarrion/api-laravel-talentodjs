@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 100)->change();
             $table->string('surname', 200)->after('name');
             $table->string('nick', 100)->after('surname');
-            $table->string('avatar', 255)->after('password');
+            $table->string('avatar', 255)->nullable()->after('password');
         });
     }
 
