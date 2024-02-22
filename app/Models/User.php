@@ -3,10 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable
 {
@@ -18,9 +20,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'role',
         'name',
+        'surname',
+        'nick',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -31,6 +37,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        
     ];
 
     /**
@@ -42,4 +49,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //Guardar en bd en minuscula y mostrar primera en mayusc.
+    protected function name(): Attribute
+    {
+        return new Attribute(
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
+        );
+    }
+
+    //Guardar en bd en minuscula y mostrar primera en mayusc.
+    protected function surname(): Attribute
+    {
+        return new Attribute(
+            get: fn($value) => ucwords($value),
+            set: fn($value) => strtolower($value)
+        );
+    }
 }
