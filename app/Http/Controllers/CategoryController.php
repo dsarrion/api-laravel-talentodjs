@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Track;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class TrackController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('welcome');
+        //
     }
 
     /**
@@ -34,7 +34,7 @@ class TrackController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Track $track)
+    public function show(Category $category)
     {
         //
     }
@@ -42,7 +42,7 @@ class TrackController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Track $track)
+    public function edit(Category $category)
     {
         //
     }
@@ -50,7 +50,7 @@ class TrackController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Track $track)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -58,9 +58,8 @@ class TrackController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Track $track)
+    public function destroy(Category $category)
     {
         //
     }
 }
-

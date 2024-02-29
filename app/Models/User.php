@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -49,6 +50,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    //Relación de uno a mucho
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    //Relación de uno a mucho
+    public function likes() : HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
 
     //Guardar en bd en minuscula y mostrar primera en mayusc.
     protected function name(): Attribute
