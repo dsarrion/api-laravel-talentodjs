@@ -20,8 +20,8 @@ Tracks = {
     Url = https://www.youtube.com/watch?v=mwX-3P-8BoE
 
     Category_id = 3
-    Title = TECHENGUE Live Set - TOBIAS GERARD Mandarine Club
-    Dj = TOBIAS GERARD
+    Title = TECHENGUE Live Set - Mandarine Club
+    Dj = Tobias Gerard
     Description = SEGUINOS EN:
                   Ig: Cachenguefestok
 
@@ -30,11 +30,11 @@ Tracks = {
     Url = https://www.youtube.com/watch?v=HPwMB17ndNM
 
     Category_id = 1
-    Title = BAILANDO EL HOUSE (LIVE from 612 La Paz, BCS) Set para el atardecer sabroso
+    Title = BAILANDO EL HOUSE (LIVE from 612 La Paz, BCS) 
     Dj = Dj Ricardo Muñoz
-    Description = Sígueme en IINSTAGRAM:
-
-                  / djricardomunoz​  
+    Description = Sígueme en INSTAGRAM: / djricardomunoz
+    
+                  Set para el atardecer sabroso​  
 
                   CONTACTO: djricardomunoz@gmail.com
 
