@@ -1,0 +1,85 @@
+Categories = [1 Electrónica, 2 Reggaetón, 3 Techno, 4 Discoteca]
+
+
+Tracks = {
+
+    Category_id = 2
+    Title = ¿QUIERES PERREO ? Vol.11
+    Dj = Alvama Ice
+    Description = ¿QUIERES PERREO ? Vol.11🔉🌟 Visualizer - Alvama Ice.
+                  En colaboración con Jose Cuervo
+    Url = https://www.youtube.com/watch?v=46L__ghfF4I&t=1193s
+
+    Category_id = 4
+    Title = ESLAND AFTER PARTY 2024 
+    Dj = Alvama Ice
+    Description = Esto son los mejores momentos del After Party Oficial de los 
+                  Premios Esland organizado por The Grefg. Una sesión en directo, 
+                  natural y diferente a todas las demás por la cantidad de buenos 
+                  momentos que nos dejo.
+    Url = https://www.youtube.com/watch?v=mwX-3P-8BoE
+
+    Category_id = 3
+    Title = TECHENGUE Live Set - TOBIAS GERARD Mandarine Club
+    Dj = TOBIAS GERARD
+    Description = SEGUINOS EN:
+                  Ig: Cachenguefestok
+
+                  PARA LLEVARTE LA FIESTA A DONDE ESTES:
+                  Contrataciones: 1162454236
+    Url = https://www.youtube.com/watch?v=HPwMB17ndNM
+
+    Category_id = 1
+    Title = BAILANDO EL HOUSE (LIVE from 612 La Paz, BCS) Set para el atardecer sabroso
+    Dj = Dj Ricardo Muñoz
+    Description = Sígueme en IINSTAGRAM:
+
+                  / djricardomunoz​  
+
+                  CONTACTO: djricardomunoz@gmail.com
+
+                  ESTAMOS DE VUELTA con un SET grabado en VIVO desde 612 ROOFTOP en la ciudad de LA PAZ, B.C.S. IG: @612rooftop
+    Url = https://www.youtube.com/watch?v=vGAderWndBc
+
+    Category_id-
+    Title-
+    Dj-
+    Description-
+    Url-
+
+    Category_id-
+    Title-
+    Dj-
+    Description-
+    Url-
+
+    Category_id-
+    Title-
+    Dj-
+    Description-
+    Url-
+
+    Category_id-
+    Title-
+    Dj-
+    Description-
+    Url-
+
+    Category_id-
+    Title-
+    Dj-
+    Description-
+    Url-
+
+    Category_id-
+    Title-
+    Dj-
+    Description-
+    Url-
+
+    Category_id-
+    Title-
+    Dj-
+    Description-
+    Url-
+}

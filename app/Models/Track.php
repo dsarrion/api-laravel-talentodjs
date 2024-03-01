@@ -31,7 +31,7 @@ class Track extends Model
     }
 
     //Relación de Muchos a Uno
-    public function categories() :BelongsTo
+    public function category() :BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
