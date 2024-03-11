@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function pruebas(Request $request){
+        return "Acción de pruebas del controlador CATEGORY-CONTROLLER";
+    }
+
     /**
      * Display a listing of the resource.
      */

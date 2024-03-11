@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class TrackController extends Controller
 {
+    public function pruebas(Request $request){
+        return "Acción de pruebas del controlador TRACK-CONTROLLER";
+    }
+
     /**
      * Display a listing of the resource.
      */
