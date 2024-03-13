@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function store(Request $request){
 
-        //Recoger datos por POST
+        // Recoger datos por POST
         $json = $request->input('json', null);
         $params = json_decode($json); //objeto
         $params_array = json_decode($json, true); //array
