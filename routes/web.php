@@ -34,9 +34,10 @@ require __DIR__.'/auth.php';
 
 // RUTAS DEL API
     Route::get('usuario/pruebas', [UserController::class, 'pruebas']);
-    Route::get('categoria/pruebas', [CategoryController::class, 'pruebas']);
+    Route::post('categoria/pruebas', [CategoryController::class, 'pruebas']);
     Route::get('track/pruebas', [TrackController::class, 'pruebas']);
 
+    Route::post('registro', [UserController::class, 'store']);
 
 
 

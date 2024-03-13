@@ -30,6 +30,11 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        //Recoger datos por POST
+        $json = $request->input('json', null);
+        $params = json_decode($json); //objeto
+        $params_array = json_decode($json, true); //array
+
         $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'surname' => ['required', 'string', 'max:200'],
@@ -52,5 +57,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+
     }
 }
