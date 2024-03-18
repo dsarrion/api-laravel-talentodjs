@@ -21,6 +21,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'role',
         'name',
         'surname',
         'nick',
@@ -50,19 +51,19 @@ class User extends Authenticatable
     ];
 
 
-    //Relación de uno a mucho
+    //Relación de uno a muchos
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    //Relación de uno a mucho
+    //Relación de uno a muchos
     public function likes() : HasMany
     {
         return $this->hasMany(Like::class);
     }
 
-    //Guardar en bd en minuscula y mostrar primera en mayusc.
+    //Guardar en bd en minusculas y mostrar primera en mayusc.
     protected function name(): Attribute
     {
         return new Attribute(
@@ -71,7 +72,7 @@ class User extends Authenticatable
         );
     }
 
-    //Guardar en bd en minuscula y mostrar primera en mayusc.
+    //Guardar en bd en minusculas y mostrar primera en mayusc.
     protected function surname(): Attribute
     {
         return new Attribute(

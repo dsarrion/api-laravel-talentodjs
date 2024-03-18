@@ -10,6 +10,10 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'categories';
+
+    protected $fillable = ['name'];
+
     //Relación de uno a mucho
     public function tracks() : HasMany
     {

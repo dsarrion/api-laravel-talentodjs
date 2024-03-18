@@ -13,6 +13,7 @@ class Track extends Model
 
     protected $fillable = [
         'title',
+        'category_id',
         'dj',
         'description',
         'url'

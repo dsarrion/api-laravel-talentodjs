@@ -4,66 +4,62 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
-    public function pruebas(Request $request){
-        return "Acción de pruebas del controlador CATEGORY-CONTROLLER";
-    }
-
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return response()->json($categories);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $rules = ['name' => 'required|string|min:1|max:100'];
+        $validator = Validator::make($request->input(),$rules);
+        if($validator->fails()){
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()->all()
+            ],400);
+        }
+        $category = new Category($request->input());
+        $category->save();
+        return response()->json([
+            'status' => true,
+            'message' =>'Categoria CREADA correctamente'
+        ],200);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Category $category)
     {
-        //
+        return response()->json(['status' => true, 'data' => $category]);    
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Category $category)
     {
-        //
+        $rules = ['name' => 'required|string|min:1|max:100'];
+        $validator = Validator::make($request->input(),$rules);
+        if($validator->fails()){
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()->all()
+            ],400);
+        }
+        $category->update($request->input());
+        return response()->json([
+            'status' => true,
+            'message' =>'Categoria ACTUALIZADA correctamente'
+        ],200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return response()->json([
+            'status' => true,
+            'message' =>'Categoria BORRADA correctamente'
+        ],200);
     }
 }
