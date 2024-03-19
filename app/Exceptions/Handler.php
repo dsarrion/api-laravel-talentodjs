@@ -37,6 +37,12 @@ class Handler extends ExceptionHandler
                     'message' => "El 'track' seleccionado es incorrecto"
                 ],404); 
             }
+            if($request->is('api/comments/*')){
+                return response()->json([
+                    'status' => false,
+                    'message' => "El 'comentario' seleccionado es incorrecto"
+                ],404); 
+            }
         });
     }
 }

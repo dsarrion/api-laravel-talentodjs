@@ -79,7 +79,7 @@ class TrackController extends Controller
     }
 
     public function all(){
-        $tracks = Track::all()->paginate(5);
+        $tracks = Track::all();
         return response()->json($tracks);
     }
 }

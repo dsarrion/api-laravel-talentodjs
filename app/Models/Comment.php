@@ -11,7 +11,9 @@ class Comment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'content'
+        'content',
+        'user_id',
+        'track_id'
     ];
 
     //Relación Muchos a Uno
