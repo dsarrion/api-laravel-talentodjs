@@ -36,15 +36,18 @@ Route::resource('tracks',TrackController::class);
 Route::get('tracks/by-category/{categoryId}', [TrackController::class, 'getByCategory']);
 
 Route::resource('categories',CategoryController::class);
-Route::resource('comments',CommentController::class);
-Route::resource('likes',LikeController::class);
 
+Route::resource('comments',CommentController::class);
+Route::get('comments/by-video/{videoId}', [CommentController::class, 'getCommentsByVideo']);
+
+Route::resource('likes',LikeController::class);
+Route::post('user/upload/avatar', [UserController::class, 'uploadAvatar']);
+Route::get('avatar/{filename}', [UserController::class, 'getImage']);
 
 Route::middleware('auth:sanctum')->group(function () { 
     
     Route::get('user/details/{id}', [UserController::class, 'detail']);
-    Route::put('user/update', [AuthController::class, 'update']);
-    Route::post('user/upload', [UserController::class, 'uploadAvatar']);
+    Route::put('user/update', [AuthController::class, 'update']); 
     Route::get('user/avatar/{filename}', [UserController::class, 'getImage']);
 
 });

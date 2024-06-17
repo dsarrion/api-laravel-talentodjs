@@ -70,4 +70,15 @@ class CommentController extends Controller
             'message' => 'Comentario BORRADO correctamente'
         ],200);
     }
+
+    public function getCommentsByVideo($videoId)
+    {
+        $comments = Comment::select('comments.*', 'tracks.title as track_title', 'users.avatar as user_avatar', 'users.nick as user_nick')
+            ->join('tracks', 'tracks.id', '=', 'comments.track_id')
+            ->join('users', 'users.id', '=', 'comments.user_id')
+            ->where('comments.track_id', $videoId)
+            ->get();
+
+        return response()->json($comments);
+    }
 }

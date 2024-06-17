@@ -40,6 +40,7 @@ class AuthController extends Controller
             'nick' => $request->nick,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'avatar' => 'picture-profile-icon.jpg',
             'role' => 'ROLE_USER',
         ]);
         return response()->json([
@@ -61,7 +62,7 @@ class AuthController extends Controller
             'surname' => 'required|string|max:200',
             'nick' => 'required|string|max:100',
             'email' => 'required|unique:users,email,'.$user->id.'|email',
-            'avatar' => 'image|mimes:jpg,jpeg,png,gif,webp|max:2048'
+            'avatar' => 'nullable|string|max:255'
         ];
 
         // Validar datos
@@ -88,7 +89,7 @@ class AuthController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Usuario ACTUALIZADO correctamente',
-            'user' => $user->only(['id', 'name', 'surname', 'nick', 'email']),
+            'user' => $user->only(['id', 'name', 'surname', 'nick', 'email', 'avatar']),
             'token' => $user->createToken('API TOKEN')->plainTextToken
         ], 200);
     }

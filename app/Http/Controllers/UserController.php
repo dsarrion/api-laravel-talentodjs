@@ -35,14 +35,23 @@ class UserController extends Controller
         //Recoger datos
         $imagen = $request->file('avatar');
 
+        //Verificar si se recibe el archivo
+        if (!$imagen) {
+            return response()->json([
+                'code' => 400,
+                'status' => 'error',
+                'message' => 'No se recibió ninguna imagen',
+            ], 400);
+        }
+
         //Validar imagen
         $validate = Validator::make($request->all(), [
             'avatar' => 'image|mimes:jpg,jpeg,png,gif'
         ]);
 
         //Si falla
-        if (!$imagen || $validate->fails()) {
-
+        if ($validate->fails()) {
+            
             $data = array(
                 'code' => 400,
                 'status' => 'error',
@@ -53,7 +62,7 @@ class UserController extends Controller
 
             //Guardar imagen
             Storage::disk('images')->put($image_name, File::get($imagen));
-
+            
             $data = array(
                 'code' => 200,
                 'status' => 'success',
