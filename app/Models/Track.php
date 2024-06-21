@@ -16,7 +16,8 @@ class Track extends Model
         'category_id',
         'dj',
         'description',
-        'url'
+        'url',
+        'likes'
     ];
 
     //Relación de uno a mucho

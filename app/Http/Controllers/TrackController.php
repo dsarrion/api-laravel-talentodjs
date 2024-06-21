@@ -21,7 +21,8 @@ class TrackController extends Controller
             'dj' => 'string|max:100',
             'description' => 'string',
             'url' => 'string|max:255',
-            'category_id' => 'required|numeric'
+            'category_id' => 'required|numeric',
+            'likes' => 0
         ];
         $validator = Validator::make($request->input(), $rules);
         if ($validator->fails()) {
