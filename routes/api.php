@@ -34,6 +34,7 @@ Route::post('auth/login', [AuthController::class, 'login']);
 
 Route::resource('tracks',TrackController::class);
 Route::get('tracks/by-category/{categoryId}', [TrackController::class, 'getByCategory']);
+Route::get('tracks/all/like/paginate', [TrackController::class, 'getTracksLikePaginate']);
 
 Route::resource('categories',CategoryController::class);
 
@@ -52,4 +53,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('likes/user/{user_id}/track/{track_id}', [LikeController::class, 'hasLike']);
     Route::get('tracks/likes/user/{user_id}', [LikeController::class, 'videosWithLikesByUser']);
 
+    
+    Route::get('tracks/all/paginate', [TrackController::class, 'getAllTracksPaginate']);
 });

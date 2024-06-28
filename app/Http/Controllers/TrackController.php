@@ -11,6 +11,7 @@ class TrackController extends Controller
     public function index()
     {
         $tracks = Track::all();
+        
         return response()->json($tracks);
     }
     
@@ -21,8 +22,7 @@ class TrackController extends Controller
             'dj' => 'string|max:100',
             'description' => 'string',
             'url' => 'string|max:255',
-            'category_id' => 'required|numeric',
-            'likes' => 0
+            'category_id' => 'required|numeric'
         ];
         $validator = Validator::make($request->input(), $rules);
         if ($validator->fails()) {
@@ -81,7 +81,27 @@ class TrackController extends Controller
         $tracks = Track::select('tracks.*', 'categories.name as category')
             ->join('categories', 'categories.id', '=', 'tracks.category_id')
             ->where('tracks.category_id', $categoryId)
-            ->paginate(5);
+            ->orderBy('tracks.created_at', 'desc')
+            ->paginate(8);
+
+        return response()->json($tracks);
+    }
+
+    public function getTracksLikePaginate()
+    {
+        $tracks = Track::withCount('likes') // Asumiendo que tienes una relación 'likes'
+        ->orderBy('likes_count', 'desc')
+        ->orderBy('updated_at', 'desc')
+        ->take(80)
+        ->paginate(8);
+
+        return response()->json($tracks);
+    }
+
+    public function getAllTracksPaginate()
+    {
+        $tracks = Track::orderBy('updated_at', 'desc')
+                   ->paginate(12);
 
         return response()->json($tracks);
     }
