@@ -39,13 +39,14 @@ Route::resource('categories',CategoryController::class);
 Route::resource('comments',CommentController::class);
 Route::get('comments/by-video/{videoId}', [CommentController::class, 'getCommentsByVideo']);
 
-Route::post('user/upload/avatar', [UserController::class, 'uploadAvatar']);
+
 Route::get('avatar/{filename}', [UserController::class, 'getImage']);
 
 Route::middleware('auth:sanctum')->group(function () { 
     
     Route::get('user/details/{id}', [UserController::class, 'detail']);
-    Route::put('user/update', [AuthController::class, 'update']); 
+    Route::put('user/update', [AuthController::class, 'update']);
+    Route::post('user/upload/avatar', [UserController::class, 'uploadAvatar']);
     Route::get('user/avatar/{filename}', [UserController::class, 'getImage']);
     Route::resource('likes',LikeController::class);
     Route::get('likes/user/{user_id}/track/{track_id}', [LikeController::class, 'hasLike']);
