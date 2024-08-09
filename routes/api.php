@@ -24,6 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }); 
 
+Route::get('test', function () {
+    return response()->json(['message' => 'API route is working, esta todo: OK']);
+});
+
 Route::get('home', [TrackController::class, 'all']);
 
 Route::post('auth/register', [AuthController::class, 'create']);
@@ -51,6 +55,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('likes',LikeController::class);
     Route::get('likes/user/{user_id}/track/{track_id}', [LikeController::class, 'hasLike']);
     Route::get('tracks/likes/user/{user_id}', [LikeController::class, 'videosWithLikesByUser']);
+    Route::get('logout', [AuthController::class, 'logout']);
  
     Route::get('tracks/all/paginate', [TrackController::class, 'getAllTracksPaginate']);
 });

@@ -145,4 +145,13 @@ class AuthController extends Controller
         ], 200);
     }
 
+    public function logout(){
+        $user = auth()->user();    
+        $user->tokens()->delete();
+         
+        return response()->json([
+            'status' => true,
+            'message' => 'Sesion CERRADA correctamente',
+        ],200);
+    }
 }
